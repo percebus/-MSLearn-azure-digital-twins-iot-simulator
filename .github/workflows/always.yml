@@ -58,7 +58,7 @@ jobs:
 
 
   builds:
-    if: github.ref == 'refs/heads/main'
+#   if: github.ref == 'refs/heads/main'
     needs: id
     env:
       DOTNET_CONFIGURATION: Release
