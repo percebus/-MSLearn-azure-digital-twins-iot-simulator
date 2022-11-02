@@ -1,2 +1,3 @@
-# -MSLearn-azure-digital-twins-iot-simulator
+# `CheeseCaveDevice`
+
 Azure Digital Twins IoT simulator
