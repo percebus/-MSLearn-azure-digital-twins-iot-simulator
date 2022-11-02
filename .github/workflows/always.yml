@@ -6,7 +6,7 @@ on:
 
 env:
   DOTNET_PROJECT: ./CheeseCaveDevice
-  DOTNET_VERSION: '6.x'
+  DOTNET_VERSION: '3.1.x'
   DOTNET_TARGET_FRAMEWORK: netcoreapp3.1
 
 jobs:
@@ -40,8 +40,7 @@ jobs:
       - name: ls
         run: ls -la
 
-      - uses: actions/checkout@v3
-      - name: setup .NET:${{ env.DOTNET_VERSION }}
+      - name: setup .NET@${{ env.DOTNET_VERSION }}
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
@@ -66,7 +65,10 @@ jobs:
       fail-fast: false
       max-parallel: 6
       matrix:
-        dotnet-version: ['3.X', '6.X']
+        dotnet-version:
+          - '3.x'
+#         - '5.x' # TODO? or XXX?
+          - '6.x'
         os:
           - ubuntu-latest
           - macOS-latest
@@ -79,7 +81,7 @@ jobs:
       - name: ls
         run: ls # windows does not support -la
 
-      - name: setup .NET:${{ matrix.dotnet-version }}
+      - name: setup .NET@${{ matrix.dotnet-version }}
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
