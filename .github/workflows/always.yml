@@ -6,7 +6,7 @@ on:
 
 env:
   DOTNET_PROJECT: ./CheeseCaveDevice
-  DOTNET_VERSION: '3.1.X'
+  DOTNET_VERSION: '6.x'
   DOTNET_TARGET_FRAMEWORK: netcoreapp3.1
 
 jobs:
@@ -72,7 +72,7 @@ jobs:
           - macOS-latest
           - windows-latest
     runs-on: ${{ matrix.os }}
-    name: Build:Release @ .NET:${{ matrix.dotnet }}@${{ matrix.os }}
+    name: Build:Release @ .NET:${{ matrix.dotnet-version }}@${{ matrix.os }}
     steps:
       - name: checkout
         uses: actions/checkout@v3
